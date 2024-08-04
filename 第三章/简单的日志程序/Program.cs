@@ -2,10 +2,14 @@
 using Microsoft.Extensions.Logging;
 
 ServiceCollection services = new ServiceCollection();
-services.AddLogging(logBuilder => { logBuilder.AddConsole(); });
+services.AddLogging(logBuilder => { logBuilder.AddConsole();
+	logBuilder.SetMinimumLevel(LogLevel.Debug);
+});
 using (var sp = services.BuildServiceProvider())
 {
+	
 	var logger = sp.GetRequiredService<ILogger<Program>>();
+	
 	logger.LogWarning("这是一条警告消息");
 	logger.LogError("这是一条错误消息");
 	string age = "abc";

@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 ServiceCollection services = new ServiceCollection();
 services.AddScoped<IDbConnection>(sp => {
-    string connStr = "Data Source=.;Initial Catalog=DI_DB;Integrated Security=true";
+    string connStr = "Data Source=.;Initial Catalog=SRS;Integrated Security=true";
     var conn = new SqlConnection(connStr);
     conn.Open();
     return conn;

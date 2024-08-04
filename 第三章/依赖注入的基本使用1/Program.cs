@@ -15,6 +15,8 @@ services.AddTransient<TestServiceImpl>();
 using (ServiceProvider sp = services.BuildServiceProvider())
 {
     var ts1 = sp.GetRequiredService<TestServiceImpl>();
+    ts1.Name = "tom";
+    var ts2name = ts1.Name;
     var ts2 = sp.GetRequiredService<TestServiceImpl>();
     Console.WriteLine(object.ReferenceEquals(ts1, ts2));
 }
